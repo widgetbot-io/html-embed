@@ -48,7 +48,7 @@ class Embed {
   private parseAttributes(node: Element) {
     const server = node.getAttribute('server') || '299881420891881473'
     const channel = node.getAttribute('channel')
-    const shard = node.getAttribute('shard') || 'https://disweb.dashflo.net'
+    const shard = node.getAttribute('shard') || 'https://e.widgetbot.io'
 
     const url = `${shard}/channels/${server}${
       channel ? `/${channel}` : ''
