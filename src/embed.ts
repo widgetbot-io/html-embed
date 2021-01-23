@@ -11,6 +11,8 @@ class Embed {
     const { id, iframe } = this
     if (this.injected) return
 
+    iframe.setAttribute('title', 'WidgetBot Discord chat embed')
+
     const api = new Client({ id, iframe })
 
     const shadow = Shadow(root as any)
