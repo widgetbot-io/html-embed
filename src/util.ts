@@ -1,7 +1,7 @@
-export const Shadow = (node: Element & { createShadowRoot: Function }) => {
+export const Shadow = (node: Element) => {
   try {
-    if (node.createShadowRoot) {
-      const shadow = node.createShadowRoot()
+    if (node.attachShadow) {
+      const shadow = node.attachShadow({mode: 'open'})
       return shadow
     }
   } catch (e) {}
