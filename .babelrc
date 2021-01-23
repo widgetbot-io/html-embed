@@ -1,0 +1,46 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false
+      }
+    ],
+    "react",
+    "stage-0"
+  ],
+  "plugins": ["syntax-dynamic-import", "macros", "preval"],
+  "env": {
+    "development": {
+      "plugins": [
+        [
+          "emotion",
+          {
+            "autoLabel": true,
+            "labelFormat": "[local]",
+            "sourceMap": true
+          }
+        ]
+      ]
+    },
+    "production": {
+      "presets": [],
+      "plugins": [
+        [
+          "ramda",
+          {
+            "useES": true
+          }
+        ],
+        [
+          "emotion",
+          {
+            "autoLabel": true,
+            "labelFormat": "[local]",
+            "hoist": true
+          }
+        ]
+      ]
+    }
+  }
+}

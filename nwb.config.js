@@ -1,6 +1,43 @@
-const baseConfig = require('../../scripts/nwb.config')
+const fs = require('fs')
+const path = require('path')
 
-const config = baseConfig()
-config.npm.umd.global = 'widgetbot'
+module.exports = () => ({
+  type: 'react-component',
+  npm: {
+    esModules: false,
+    umd: {
+      entry: './src/umd.ts',
+      global: 'widgetbot'
+    }
+  },
+  webpack: {
+    extra: {
+      resolve: {
+        extensions: ['.ts', '.tsx', '.js']
+      }
+    },
+    config(config) {
+      config.module.rules.push({
+        test: /\.tsx?$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: JSON.parse(
+              fs.readFileSync(path.join(__dirname, '.babelrc'), 'utf8')
+            )
+          },
+          'ts-loader'
+        ]
+      })
 
-module.exports = config
+      config.entry = config.entry.map(
+        path => (path.endsWith('index.js') ? path.replace(/js$/, 'ts') : path)
+      )
+
+      const outputDirs = config.output.filename.split('/')
+      config.output.filename = outputDirs[outputDirs.length - 1]
+
+      return config
+    }
+  }
+})
