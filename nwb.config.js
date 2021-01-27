@@ -23,7 +23,7 @@ module.exports = () => ({
           {
             loader: 'babel-loader',
             options: JSON.parse(
-              fs.readFileSync(path.join(__dirname, '.babelrc'), 'utf8')
+              fs.readFileSync(path.join(__dirname, 'dev.babelrc'), 'utf8')
             )
           },
           'ts-loader'
