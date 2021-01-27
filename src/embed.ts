@@ -51,10 +51,13 @@ class Embed {
     const server = node.getAttribute('server') || '299881420891881473'
     const channel = node.getAttribute('channel')
     const shard = node.getAttribute('shard') || 'https://e.widgetbot.io'
+    const username = node.getAttribute('username')
 
     const url = `${shard}/channels/${server}${
       channel ? `/${channel}` : ''
-    }/?api=${this.id}`
+    }/?api=${this.id}${
+      username ? `&username=${username}` : ''
+    }`
 
     const width = node.getAttribute('width')
     const height = node.getAttribute('height')
