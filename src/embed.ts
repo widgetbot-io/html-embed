@@ -50,8 +50,11 @@ class Embed {
   private parseAttributes(node: Element) {
     const server = node.getAttribute('server') || '299881420891881473'
     const channel = node.getAttribute('channel')
-    const shard = node.getAttribute('shard') || 'https://e.widgetbot.io'
+    let shard = node.getAttribute('shard') || 'https://e.widgetbot.io'
     const username = node.getAttribute('username')
+
+    if (!shard.startsWith('http')) shard = `https://${shard}`
+    if (shard.endsWith('/')) shard = shard.substring(0, shard.length-1)
 
     const url = `${shard}/channels/${server}${
       channel ? `/${channel}` : ''
