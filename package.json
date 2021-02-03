@@ -1,6 +1,6 @@
 {
   "name": "@widgetbot/html-embed",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "html-embed React component",
   "main": "umd/html-embed.min.js",
   "files": [
