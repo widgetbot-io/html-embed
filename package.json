@@ -13,7 +13,7 @@
     "build": "nwb build-react-component --no-demo",
     "clean": "nwb clean-module && nwb clean-demo",
     "start": "nwb serve-react-demo --port 3200",
-    "release": "yarn build && yarn publish",
+    "release": "yarn version && yarn build && yarn publish",
     "purge": "tinyreq -u https://purge.jsdelivr.net/npm/@widgetbot/html-embed"
   },
   "dependencies": {},
