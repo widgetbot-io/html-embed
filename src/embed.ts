@@ -52,6 +52,7 @@ class Embed {
     const channel = node.getAttribute('channel')
     let shard = node.getAttribute('shard') || 'https://e.widgetbot.io'
     const username = node.getAttribute('username')
+    const avatar = node.getAttribute('avatar')
 
     if (!shard.startsWith('http')) shard = `https://${shard}`
     if (shard.endsWith('/')) shard = shard.substring(0, shard.length-1)
@@ -60,6 +61,8 @@ class Embed {
       channel ? `/${channel}` : ''
     }/?api=${this.id}${
       username ? `&username=${username}` : ''
+    }${
+      avatar ? `&avatar=${avatar}` : ''
     }`
 
     const width = node.getAttribute('width')
