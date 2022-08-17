@@ -51,19 +51,17 @@ class Embed {
     const server = node.getAttribute('server') || '299881420891881473'
     const channel = node.getAttribute('channel')
     let shard = node.getAttribute('shard') || 'https://e.widgetbot.io'
-    const username = node.getAttribute('username')
-    const avatar = node.getAttribute('avatar')
 
     if (!shard.startsWith('http')) shard = `https://${shard}`
     if (shard.endsWith('/')) shard = shard.substring(0, shard.length-1)
 
-    const url = `${shard}/channels/${server}${
-      channel ? `/${channel}` : ''
-    }/?api=${this.id}${
-      username ? `&username=${username}` : ''
-    }${
-      avatar ? `&avatar=${avatar}` : ''
-    }`
+    const params = new URLSearchParams({ api: this.id })
+
+    for (const param of ['username', 'avatar', 'token', 'notifications', 'notificationtimeout']) {
+      if (node.hasAttribute(param)) params.append(param, node.getAttribute(param))
+    }
+
+    const url = `${shard}/channels/${server}${channel ? `/${channel}` : ''}?${params}`
 
     const width = node.getAttribute('width')
     const height = node.getAttribute('height')
