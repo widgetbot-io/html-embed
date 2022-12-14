@@ -19,6 +19,7 @@ class Embed {
     shadow.appendChild(iframe)
 
     const { server, channel, url, ...styles } = this.parseAttributes(root)
+    iframe.setAttribute('allow', 'clipboard-write')
     iframe.setAttribute('src', url)
 
     this.setAPI(root, {
