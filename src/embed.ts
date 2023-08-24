@@ -58,7 +58,7 @@ class Embed {
 
     const params = new URLSearchParams({ api: this.id })
 
-    for (const param of ['username', 'avatar', 'token', 'notifications', 'notificationtimeout']) {
+    for (const param of ['username', 'avatar', 'token', 'notifications', 'notificationtimeout', 'thread']) {
       if (node.hasAttribute(param)) params.append(param, node.getAttribute(param))
     }
 
