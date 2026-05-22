@@ -36,3 +36,34 @@
 
 </html>
 ```
+
+## Telegram
+
+Use the `<telegram-widget>` tag for Telegram chats. `shard` is **required** —
+point it at your deployed Telegram widget host:
+
+```html
+<telegram-widget
+  chat="-1003784217881"
+  shard="https://your-telegram-widget.example.com"
+  id="tg-embed"
+  height="600"
+  width="400"
+></telegram-widget>
+<script src="https://unpkg.com/@widgetbot/html-embed"></script>
+
+<script>
+  const embed = document.getElementById('tg-embed')
+  embed.on('ready', () => console.log('Telegram widget ready'))
+  embed.on('signIn', (user) => console.log('Signed in as', user))
+</script>
+```
+
+Attributes:
+
+- `shard` (required) — URL of the deployed Telegram widget host
+- `chat` (required) — Telegram chat ID (e.g. `-1003784217881`)
+- `topic` (optional) — Topic ID for supergroup forums
+- `token` (optional) — Platform auth token
+- `width`, `height` — Pixel dimensions (or any CSS length)
+

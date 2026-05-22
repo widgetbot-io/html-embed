@@ -14,10 +14,14 @@ class WidgetBot {
   }
 
   public register() {
-    const widgetbots = document.getElementsByTagName('widgetbot') as any
+    this.registerTag('widgetbot', 'discord')
+    this.registerTag('telegram-widget', 'telegram')
+  }
 
-    for (const embed of widgetbots) {
-      const { root } = new Embed(embed)
+  private registerTag(tagName: string, platform: 'discord' | 'telegram') {
+    const elements = document.getElementsByTagName(tagName) as any
+    for (const element of elements) {
+      const { root } = new Embed(element, platform)
       this.embeds.push(root)
     }
   }
