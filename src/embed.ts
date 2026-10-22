@@ -9,12 +9,12 @@ const DISCORD_DEFAULTS = {
   shard: 'https://e.widgetbot.io',
   server: '299881420891881473',
   title: 'WidgetBot Discord chat embed',
-  passthroughParams: ['username', 'avatar', 'token', 'notifications', 'notificationtimeout', 'thread']
+  passthroughParams: ['username', 'avatar', 'token', 'notifications', 'notificationtimeout', 'thread', 'settings-group']
 }
 
 const TELEGRAM_DEFAULTS = {
   title: 'WidgetBot Telegram chat embed',
-  passthroughParams: ['token']
+  passthroughParams: ['token', 'settings-group']
 }
 
 class Embed {

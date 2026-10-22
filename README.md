@@ -13,6 +13,7 @@
     id="embed"
     height="300"
     width="500"
+    settings-group="default"
   >
   </widgetbot>
   <script src="https://unpkg.com/@widgetbot/html-embed"></script>
@@ -65,5 +66,6 @@ Attributes:
 - `chat` (required) — Telegram chat ID (e.g. `-1003784217881`)
 - `topic` (optional) — Topic ID for supergroup forums
 - `token` (optional) — Platform auth token
+- `settings-group` (optional) — Settings group to load (its theme and settings); the server's `default` group when omitted
 - `width`, `height` — Pixel dimensions (or any CSS length)
 
